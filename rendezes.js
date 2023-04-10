@@ -2,10 +2,9 @@ import { KUTYALISTA} from "./adat.js";
 import { adatMegjelenit } from "./megjelenit.js";
 import { init } from "./megjelenit.js";
 import { deletedRows } from "./megjelenit.js";
-
 export let listamunka = KUTYALISTA
-export function rendezesbetu(valasztas){
-    let ujlista = []
+export let ujlista = []
+export function rendezesbetu(valasztas){ujlista = []
     ujlista = listamunka.map(kutya => ({
             neve: kutya.neve,
             fajtaja: kutya.fajtaja,
@@ -21,12 +20,11 @@ export function rendezesbetu(valasztas){
           sortorles(ujlista, deletedRows);
           listamunka = ujlista
           init(adatMegjelenit(ujlista))
-          console.log(listamunka,"igen")
           duplicaltorol()
 }
 
 export function rendezesbetuVissza(valasztas){
-  let ujlista = []
+   ujlista = []
   ujlista = listamunka.map(kutya => ({
     neve: kutya.neve,
     fajtaja: kutya.fajtaja,
@@ -45,18 +43,17 @@ export function rendezesbetuVissza(valasztas){
   duplicaltorol()
 }
 export function szamrendezes(valasztas){
-  let ujlista = []
+   ujlista = []
     ujlista = listamunka.sort((a, b) => a[valasztas] - b[valasztas]);
     
     sortorles(ujlista, deletedRows);
     listamunka = ujlista
     init(adatMegjelenit(ujlista))
     duplicaltorol()
-    console.log(ujlista)
 }
 
 export function szamrendezesVissza(valasztas){
-  let ujlista = []
+    ujlista = []
     ujlista = listamunka.sort((b, a) => a[valasztas] - b[valasztas]);
     
     sortorles(ujlista, deletedRows);
@@ -123,4 +120,17 @@ function duplicaltorol(){
       }
     });
 });
+}
+export function hozzaadatablahoz(){
+  var aneve = $(".nevad").val();
+  var afajtaja = $(".fajtaad").val()
+  var akorad = parseInt($(".korad").val())
+  listamunka.push({
+          neve: aneve,
+          fajtaja: afajtaja,
+          kora: akorad,
+        
+        });
+        init(adatMegjelenit(listamunka))
+        duplicaltorol()
 }

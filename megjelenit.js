@@ -1,9 +1,10 @@
 import { kulcsLista } from "./adat.js";
-import { rendezesbetu, rendezesbetuVissza, szamrendezes, szamrendezesVissza} from "./rendezes.js";
+import { hozzaadatablahoz, rendezesbetu, rendezesbetuVissza, szamrendezes, szamrendezesVissza,} from "./rendezes.js";
 import { listamunka } from "./rendezes.js"
 let kattint = 0
 export let deletedRows = []
 export function init(){
+  $(".hozzaadful").hide()
   $(".mentes").hide()
   var NevreRendez = document.getElementById("neve");
     $(NevreRendez).on("click", function() {
@@ -95,7 +96,17 @@ export function init(){
         $(this).hide();  
 
       });
-  }
+
+      var hozzaad = document.getElementById("hozzaadas")
+      $(hozzaad).click(() => {
+        $(".hozzaadful").show()
+      var elmentes = document.getElementById("elment")
+      $(elmentes).click(() => {
+        adatTorol()
+        hozzaadatablahoz()
+  })
+      
+  })}
       
 export function adatMegjelenit(lista) {
 

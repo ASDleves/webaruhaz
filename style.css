@@ -30,3 +30,7 @@ ul{
     grid-template-columns: 1fr 1fr;
     text-align: center;
 }
+aside{
+    padding-top: 10px;
+    text-align: center}
+    ;
