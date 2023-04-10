@@ -133,4 +133,8 @@ export function hozzaadatablahoz(){
         });
         init(adatMegjelenit(listamunka))
         duplicaltorol()
+        const inputs = document.querySelectorAll('.nevad, .fajtaad, .korad');
+        inputs.forEach(input => {
+          input.value = '';
+        });
 }
