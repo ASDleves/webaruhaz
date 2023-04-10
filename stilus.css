@@ -1,0 +1,78 @@
+
+main{
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-areas: "h h h"
+                         "n n n"
+                         "s s s"
+                         "a a a"
+                         "as as as";
+}
+header{
+    grid-area: h;
+}
+nav{
+    grid-area: n;
+}
+nav ul li{
+    display: inline;
+    text-decoration: none;
+    
+    
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+}
+section{
+    grid-area: s;
+    text-align: center;
+    padding-bottom: 10px;
+}
+ul{
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+article{
+    grid-area: a;
+}
+aside{
+    grid-area: as;
+    grid-template-columns: 1fr 1fr ;
+}
+.card {
+  margin-bottom: 20px;
+  border: 5px solid brown;
+  border-radius: 0.25rem;
+  text-align: center;
+  background-color: #FAF253
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.cim {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.card-text {
+  margin-bottom: 0;
+}
+.card {
+    width: calc(25% - 10px); /* set card width to 25% of the container width minus the margin */
+    margin-right: 10px; /* set margin right between cards */
+    float: left; /* float cards left */
+  }
+  
+  .clearfix {
+    clear: both; /* clear float */
+  }
