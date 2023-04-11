@@ -61,9 +61,28 @@ $('.kosarbatesz').on('click', function() {
   const divContent = removedDiv.html();
   let ujkartya = $('<div>').addClass('card');
   let ujkartyaTartalom = $('<div>').addClass('card-body');
+  const torolgomb = $('<br><button>').addClass('torles').text(`Törlés`)
   ujkartyaTartalom.append(divContent);
+  ujkartyaTartalom.append(torolgomb)
   ujkartya.append(ujkartyaTartalom);
   $('.kosarbahelyezes').append(ujkartya);
   removedDiv.parents('.card').remove();
+  ujkartya.find('.kosarbatesz').remove();
 });
+
+$('.torles').on('click', function() {
+  const amittorol = $(this).closest('div').data("index");
+  const removedDiv = $(`div[data-index='${amittorol}']`);
+  const divContent = removedDiv.html();
+  let ujkartya = $('<div>').addClass('card');
+  let ujkartyaTartalom = $('<div>').addClass('card-body');
+  const kosarba = $('<br><button>').addClass('kosarbatesz').text(`kosárba tesz`)
+  ujkartyaTartalom.append(divContent);
+  ujkartyaTartalom.append(kosarba)
+  ujkartya.append(ujkartyaTartalom);
+  $('#card-container').append(ujkartya);
+  removedDiv.parents('.card').remove();
+  ujkartya.find('.torles').remove();
+});
+
 })
