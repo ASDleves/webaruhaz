@@ -1,26 +1,63 @@
 import { KUTYALISTA} from "./adat.js";
 $(() => {
-    const container = $('#card-container');
-    const nevreKeres = $('#nev');
-    const fajtaKeres =  $('#fajta')
-for (let i = 0; i < KUTYALISTA.length; i++) {
-  const kutya = KUTYALISTA[i];
-  const card = $('<div>').addClass('card');
-  const cardBody = $('<div>').addClass('card-body')
-  const cim = $('<h2>').addClass('cim').text(kutya.neve);
-  const faj = $('<p>').addClass('fajta').text(`Fajta: ${kutya.fajtaja}`);
-  const kor = $('<p>').addClass('card-text').text(`Kor: ${kutya.kora}`);
-  const megvizsgal = $('<button>').addClass('megvizsgalas').text(`megvizsgál`)
-  const kosarba = $('<br><button>').addClass('kosarbatesz').text(`kosárba tesz`)
-  cardBody.append(cim);
-  cardBody.append(faj);
-  cardBody.append(kor);
-  cardBody.append(megvizsgal)
-  cardBody.append(kosarba)
-  card.append(cardBody);
-  container.append(card);
-}
+  const container = $('#card-container');
+  const nevreKeres = $('#nev');
+  const fajtaKeres = $('#fajta');
 
+  $.each(KUTYALISTA, (i, kutya) => {
+    const card = $('<div>').addClass('card');
+    const cardBody = $('<div>').addClass('card-body');
+    const cim = $('<h2>').addClass('cim').text(kutya.neve);
+    const faj = $('<p>').addClass('fajta').text(`Fajta: ${kutya.fajtaja}`);
+    const kep = $('<img>').attr('src', kutya.kep).addClass('card-img-top');
+    const kor = $('<p>').addClass('card-text').text(`Kor: ${kutya.kora}`);
+    const megvizsgal = $('<button>').addClass('openModal').text(`megvizsgál`);
+    const kosarba = $('<button>').addClass('kosarbatesz btn btn-success').text(`kosárba tesz`);
+
+    // Add the elements to the card
+    cardBody.append(cim, faj, kep, kor, megvizsgal, kosarba);
+    card.append(cardBody);
+    container.append(card);
+  });
+  var modal = $("#myModal");
+
+  // Get the button that opens the modal
+  var btn = $(".openModal");
+
+  // Get the <span> element that closes the modal
+  var span = $(".close")[0];
+
+  // When the user clicks on the button, open the modal and start the slideshow
+  btn.click(function() {
+    modal.css("display", "block");
+    slideshowIndex = 0;
+    showSlideshow();
+  });
+
+  // When the user clicks on <span> (x), close the modal
+  $(span).click(function() {
+    modal.css("display", "none");
+  });
+  $("#prevBtn").on("click", function() {
+    showSlideshow(-1); // Change to previous image
+  });
+
+  $("#nextBtn").on("click", function() {
+    showSlideshow(1); // Change to next image
+  });
+
+  // Slideshow logic
+  var slideshowIndex = 0;
+
+  function showSlideshow() {
+    var images = $(".slideshow").find("img");
+    images.css("display", "none");
+    slideshowIndex++;
+    if (slideshowIndex > images.length) {
+      slideshowIndex = 1;
+    }
+    $(images[slideshowIndex - 1]).css("display", "block");
+  }
 function nevkeres(name) {
   const cards = container.find('.card');
   cards.each(function() {
@@ -85,4 +122,5 @@ $('.torles').on('click', function() {
   ujkartya.find('.torles').remove();
 });
 
-})
+});
+

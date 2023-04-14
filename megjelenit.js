@@ -128,7 +128,10 @@ export function adatMegjelenit(lista) {
       const element = object[key]
       if(key == nev){
         txt += `<th> ${element} </th>`
-      } else {
+      } else if(key == "kep") {
+        txt += `<td><img src="${element}" alt="${index}"></td>`
+      
+      }else {
         txt += `<td> ${element} </td>`
       }
     }
