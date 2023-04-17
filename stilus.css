@@ -123,3 +123,28 @@ aside{
   display: grid;
   grid-template-columns: 50px auto 50px;
 }
+
+@media screen and (max-width: 795px) {
+  .card {
+    width: calc(30% - 10px); /* set card width to 25% of the container width minus the margin */
+    margin-right: 10px; /* set margin right between cards */
+    float: left; /* float cards left */
+  }
+  }
+
+  @media screen and (max-width: 675px) {
+    .card {
+      width: calc(40% - 10px); /* set card width to 25% of the container width minus the margin */
+      margin-right: 10px; /* set margin right between cards */
+      float: left; /* float cards left */
+    }
+    }
+
+    @media screen and (max-width: 500px) {
+      .card {
+        width: calc(80% - 10px); /* set card width to 25% of the container width minus the margin */
+        margin-right: 10px; /* set margin right between cards */
+        float: left; /* float cards left */
+      }
+      }
+  

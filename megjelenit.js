@@ -46,11 +46,12 @@ export function init(){
     $(document).ready(function() {
       $(".delete-btn").click(function() {
         var row = $(this).closest("tr");
-      
+        var imgSrc = row.find("td:eq(3) img").attr("src");
         deletedRows.push({
           neve: row.find("td:eq(0)").text().trim(),
           fajtaja: row.find("td:eq(1)").text().trim(),
           kora: parseInt(row.find("td:eq(2)").text().trim()),
+          kep: imgSrc
         });
         row.remove();
         console.log(deletedRows)    
@@ -61,7 +62,7 @@ export function init(){
         var rowData = {};
         $(this).parent().siblings('td:not(:last-child)').each(function(index) {
           var content = $(this).html();
-          if (!$(this).has('input').length) { // check if td element already contains an input element
+          if (!$(this).has('input').length && !$(this).has('img').length) { 
             $(this).html('<input value="' + content + '" />');
           }
           if (index === 0) {
@@ -70,36 +71,48 @@ export function init(){
             rowData.fajtaja = content.trim();
           } else if (index === 2) {
             rowData.kora = parseInt(content.trim());
+          } else if (index === 3) {
+            var imgSrc = $(this).find('kep').attr('src');
+            rowData.img = imgSrc;
           }
         });
         deletedRows.push(rowData);
         console.log(deletedRows)
         $(this).siblings('.mentes').show();  
         $(this).hide();  
-      });  
+      });
       $(document).on('click', '.mentes', function() { 
         
         $('input').each(function() {  
           var content = $(this).val();  
           $(this).html(content);  
           $(this).contents().unwrap(); 
-          
-          });
-          var row = $(this).closest("tr");
-          listamunka.push({
-            neve: row.find("td:eq(0)").text().trim(),
-            fajtaja: row.find("td:eq(1)").text().trim(),
-            kora: parseInt(row.find("td:eq(2)").text().trim()),
         });
+        
+        var row = $(this).closest("tr");
+        var imgSrc = row.find("td:eq(3) img").attr("src");
+        listamunka.push({
+          neve: row.find("td:eq(0)").text().trim(),
+          fajtaja: row.find("td:eq(1)").text().trim(),
+          kora: parseInt(row.find("td:eq(2)").text().trim()),
+          kep: imgSrc 
+        });
+        
         $(this).siblings('.modosit').show(); 
         $(this).siblings('.mentes').hide();  
         $(this).hide();  
-
+      
       });
 
       var hozzaad = document.getElementById("hozzaadas")
       $(hozzaad).click(() => {
         $(".hozzaadful").show()
+        deletedRows.push({
+          neve: '',
+          fajtaja: '',
+          kora: 0,
+          kep: "kepek/kuty2.jpg",
+      })
       var elmentes = document.getElementById("elment")
       $(elmentes).click(() => {
         adatTorol()

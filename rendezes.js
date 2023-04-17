@@ -8,7 +8,8 @@ export function rendezesbetu(valasztas){ujlista = []
     ujlista = listamunka.map(kutya => ({
             neve: kutya.neve,
             fajtaja: kutya.fajtaja,
-            kora: kutya.kora
+            kora: kutya.kora,
+            kep: kutya.kep
           })).sort((a, b) => {
             const nameA = a[valasztas].toLowerCase();
             const nameB = b[valasztas].toLowerCase();
@@ -28,7 +29,8 @@ export function rendezesbetuVissza(valasztas){
   ujlista = listamunka.map(kutya => ({
     neve: kutya.neve,
     fajtaja: kutya.fajtaja,
-    kora: kutya.kora
+    kora: kutya.kora,
+    kep: kutya.kep
   })).sort((a, b) => {
     const nameA = a[valasztas].toLowerCase();
     const nameB = b[valasztas].toLowerCase();
@@ -122,14 +124,15 @@ function duplicaltorol(){
 });
 }
 export function hozzaadatablahoz(){
+console.log(deletedRows)
   var aneve = $(".nevad").val();
   var afajtaja = $(".fajtaad").val()
-  var akorad = parseInt($(".korad").val())
+  var akorad = Number.isInteger(parseInt($(".korad").val())) ? parseInt($(".korad").val()) : 0;
   listamunka.push({
           neve: aneve,
           fajtaja: afajtaja,
           kora: akorad,
-        
+          kep: "kepek/kuty2.jpg",
         });
         init(adatMegjelenit(listamunka))
         duplicaltorol()
@@ -137,4 +140,5 @@ export function hozzaadatablahoz(){
         inputs.forEach(input => {
           input.value = '';
         });
-}
+
+  }
