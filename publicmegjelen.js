@@ -3,7 +3,7 @@ $(() => {
   const container = $('#card-container');
   const nevreKeres = $('#nev');
   const fajtaKeres = $('#fajta');
-
+  const kosarcontainer = $('#kosarbahelyezes')
   $.each(KUTYALISTA, (i, kutya) => {
     const card = $('<div>').addClass('card');
     const cardBody = $('<div>').addClass('card-body');
@@ -12,12 +12,28 @@ $(() => {
     const kep = $('<img>').attr('src', kutya.kep).addClass('card-img-top');
     const kor = $('<p>').addClass('card-text').text(`Kor: ${kutya.kora}`);
     const megvizsgal = $('<button>').addClass('openModal').text(`megvizsgál`);
-    const kosarba = $('<button>').addClass('kosarbatesz btn btn-success').text(`kosárba tesz`);
+    const kosarba = $('<br><button>').addClass('kosarbatesz btn btn-success').text(`kosárba tesz`);
 
     // Add the elements to the card
     cardBody.append(cim, faj, kep, kor, megvizsgal, kosarba);
     card.append(cardBody);
     container.append(card);
+  });
+  $.each(KUTYALISTA, (i, kutya) => {
+    const card = $('<div>').addClass('card cardkosar');
+    const cardBody = $('<div>').addClass('card-body');
+    const cim = $('<h2>').addClass('cim').text(kutya.neve);
+    const faj = $('<p>').addClass('fajta').text(`Fajta: ${kutya.fajtaja}`);
+    const kep = $('<img>').attr('src', kutya.kep).addClass('card-img-top');
+    const kor = $('<p>').addClass('card-text').text(`Kor: ${kutya.kora}`);
+    const megvizsgal = $('<button>').addClass('openModal').text(`megvizsgál`);
+    const torles = $('<br><button>').addClass('torles').text(`Törlés`);
+
+    // Add the elements to the card
+    cardBody.append(cim, faj, kep, kor, megvizsgal, torles);
+    card.append(cardBody);
+    kosarcontainer.append(card);
+    $('.cardkosar').hide();
   });
   var modal = $("#myModal");
 
@@ -95,31 +111,17 @@ $('div').each(function(index) {
 $('.kosarbatesz').on('click', function() {
   const amittorol = $(this).closest('div').data("index");
   const removedDiv = $(`div[data-index='${amittorol}']`);
-  const divContent = removedDiv.html();
-  let ujkartya = $('<div>').addClass('card');
-  let ujkartyaTartalom = $('<div>').addClass('card-body');
-  const torolgomb = $('<br><button>').addClass('torles').text(`Törlés`)
-  ujkartyaTartalom.append(divContent);
-  ujkartyaTartalom.append(torolgomb)
-  ujkartya.append(ujkartyaTartalom);
-  $('.kosarbahelyezes').append(ujkartya);
-  removedDiv.parents('.card').remove();
-  ujkartya.find('.kosarbatesz').remove();
-});
+  removedDiv.parents('.card').hide();
+  const megjelendiv = $(`div[data-index='${amittorol+12}']`)
+  megjelendiv.parents('.cardkosar').show()
+})
 
 $('.torles').on('click', function() {
   const amittorol = $(this).closest('div').data("index");
   const removedDiv = $(`div[data-index='${amittorol}']`);
-  const divContent = removedDiv.html();
-  let ujkartya = $('<div>').addClass('card');
-  let ujkartyaTartalom = $('<div>').addClass('card-body');
-  const kosarba = $('<br><button>').addClass('kosarbatesz').text(`kosárba tesz`)
-  ujkartyaTartalom.append(divContent);
-  ujkartyaTartalom.append(kosarba)
-  ujkartya.append(ujkartyaTartalom);
-  $('#card-container').append(ujkartya);
-  removedDiv.parents('.card').remove();
-  ujkartya.find('.torles').remove();
+  removedDiv.parents('.cardkosar').hide();
+  const megjelendiv = $(`div[data-index='${amittorol-12}']`)
+  megjelendiv.parents('.card').show()
 });
 
 });
