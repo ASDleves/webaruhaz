@@ -113,6 +113,7 @@ export function init(){
           kora: 0,
           kep: "kepek/kuty2.jpg",
       })
+      let elmentes = document.getElementById("elment")
       $(elmentes).click(() => {
         adatTorol()
         hozzaadatablahoz()
