@@ -3,7 +3,7 @@ body{
 }
 main{
     width: 80%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
     display: grid;
     grid-template-areas: "h h h"
@@ -52,6 +52,7 @@ aside{
   margin-bottom: 20px;
   border-radius: 0.25rem;
   text-align: center;
+  border: 2px solid brown;
 }
 .torles{
   background-color: firebrick;
@@ -163,5 +164,6 @@ aside{
         margin-right: 10px; /* set margin right between cards */
         float: left; /* float cards left */
       }
+  
       }
   

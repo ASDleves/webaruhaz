@@ -1,5 +1,5 @@
 import { KUTYALISTA} from "./adat.js";
-import { adatMegjelenit } from "./megjelenit.js";
+import { adatMegjelenit } from "./tablazatmegjelenit.js";
 import { init } from "./megjelenit.js";
 import { deletedRows } from "./megjelenit.js";
 export let listamunka = KUTYALISTA
@@ -124,7 +124,6 @@ function duplicaltorol(){
 });
 }
 export function hozzaadatablahoz(){
-console.log(deletedRows)
   var aneve = $(".nevad").val();
   var afajtaja = $(".fajtaad").val()
   var akorad = Number.isInteger(parseInt($(".korad").val())) ? parseInt($(".korad").val()) : 0;
