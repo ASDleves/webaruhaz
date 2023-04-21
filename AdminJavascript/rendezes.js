@@ -1,7 +1,7 @@
 import { KUTYALISTA} from "./adat.js";
-import { adatMegjelenit } from "./tablazatmegjelenit.js";
 import { init } from "./megjelenit.js";
 import { deletedRows } from "./megjelenit.js";
+import { adatMegjelenit } from "./megjelenit.js";
 export let listamunka = KUTYALISTA
 export let ujlista = []
 export function rendezesbetu(valasztas){ujlista = []

@@ -1,6 +1,7 @@
 import { modalJelenites } from "./modal.js";
 import { kartyaGeneralas, kosarKartyaGeneralas, dataIndexadas } from "./publicGeneral.js";
 import { keres } from "./publicKeres.js";
+
 $(() => { 
  
   const nevreKeres = $('#nev');

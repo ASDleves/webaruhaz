@@ -1,4 +1,4 @@
-import { KUTYALISTA } from "./adat.js";
+import { KUTYALISTA } from "../AdminJavascript/adat.js";
 
 export function kartyaGeneralas(){
     const container = $('#card-container');

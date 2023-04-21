@@ -2,7 +2,7 @@ export function keres(name) {
     const container = $('#card-container');
     const cards = container.find('.card');
     cards.each(function() {
-      if( name === nev){
+      if( name == nev){
         const keres = $(this).find('.cim');
       if (keres.text().toLowerCase().includes(name.toLowerCase())) {
         $(this).show();

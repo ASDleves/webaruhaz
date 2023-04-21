@@ -1,5 +1,6 @@
 import { KUTYALISTA} from "./adat.js";
-import { adatMegjelenit, init } from "./megjelenit.js";
+import { adatMegjelenit ,init } from "./megjelenit.js";
+
 
 $(() => {
   
