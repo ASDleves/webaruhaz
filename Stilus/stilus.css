@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  background: linear-gradient(to right, black 0%, gray 50%, black 100%);
 }
 main{
     width: 80%;
@@ -24,11 +25,15 @@ nav ul li{
     
     
 }
+h1{
+  color: white;
+}
 nav ul li a{
     text-decoration: none;
-    color: black;
+    color: white;
     border: 1px solid black;
     padding: 10px;
+    background-color: gray;
 }
 section{
     grid-area: s;
@@ -47,15 +52,19 @@ article{
 aside{
     grid-area: as;
     grid-template-columns: 1fr 1fr ;
+
+}
+aside h2{
+  color: white;
 }
 .card {
   margin-bottom: 20px;
   border-radius: 0.25rem;
   text-align: center;
-  border: 2px solid brown;
+  background-color: lightgrey;
 }
 .torles{
-  background-color: firebrick;
+  background-color: red;
 }
 .card-body {
   padding: 1.25rem;
@@ -116,8 +125,7 @@ aside{
     /* Remove the "left" property */
   }
   .openModal{
-    background-color: rgb(77, 232, 238);
-    border: 50%;
+    background-color: orange;
   }
   .close:hover,
   .close:focus {
