@@ -1,7 +1,7 @@
 export const KUTYALISTA = [
     {
         neve: "Vackó",
-        fajtaja: "Keverék",
+        fajtaja: "Eurázsiai",
         kora: 8,
         kep: "kepek/kuty1.jpg"    
     },
@@ -13,51 +13,51 @@ export const KUTYALISTA = [
     },
     {
         neve: "BigBoss",
-        fajtaja: "Kuvasz",
+        fajtaja: "Airedale terrier",
         kora: 3,
-        kep: "kepek/kuty1.jpg"    
+        kep: "kepek/kuty3.jpg"    
     },
     {
         neve: "Fickó",
-        fajtaja: "Rottweiler",
+        fajtaja: "Alaszkai malamut",
         kora: 5,
-        kep: "kepek/kuty2.jpg"    
+        kep: "kepek/kuty4.jpg"    
     },
     {
         neve: "Kulcs",
-        fajtaja: "Goldi",
+        fajtaja: "Angol cocker spániel",
         kora: 8,
-        kep: "kepek/kuty1.jpg"
+        kep: "kepek/kuty5.jpg"
     },
     {
         neve: "Bázis",
-        fajtaja: "Kuvasz",
+        fajtaja: "Ausztrál juhászkutya",
         kora: 7,
-        kep: "kepek/kuty2.jpg"    
+        kep: "kepek/kuty6.jpg"    
     },
     {
         neve: "Turbó",
-        fajtaja: "Tacskó",
+        fajtaja: "Boxer",
         kora: 9,
-        kep: "kepek/kuty1.jpg"   
+        kep: "kepek/kuty7.jpg"   
     },
     {
         neve: "Ubul",
-        fajtaja: "Németjuhász",
+        fajtaja: "Cane corso",
         kora: 1,
-        kep: "kepek/kuty2.jpg"    
+        kep: "kepek/kuty8.jpg"    
     },
     {
         neve: "Turbék",
-        fajtaja: "Virslikutya",
+        fajtaja: "Csau csau",
         kora: 3,
-        kep: "kepek/kuty1.jpg"    
+        kep: "kepek/kuty9.jpg"    
     },
     {
         neve: "Birka",
-        fajtaja: "Blöki",
+        fajtaja: "Dobermann",
         kora: 5,
-        kep: "kepek/kuty2.jpg"    
+        kep: "kepek/kuty10.jpg"    
     },
     ]
 
