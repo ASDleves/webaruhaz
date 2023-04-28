@@ -7,7 +7,7 @@ export const KUTYALISTA = [
     },
     {
         neve: "Széria",
-        fajtaja: "Huski",
+        fajtaja: "Afgán Agár",
         kora: 6,
         kep: "kepek/kuty2.jpg"   
     },
